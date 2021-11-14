@@ -1,12 +1,15 @@
 /*
  * main.c
  *
- * author: Furkan Cayci
+ * author: Alican Bayındır
  *
- * description: Blinks 1 on-board LED at roughly 1 second intervals. system 
- *   clock is running from HSI which is 16 Mhz. Delay function is just a simple 
- *   counter so is not accurate and the delay time will change based on the 
- *   optimization flags.
+ * Problem 1 [20 pts]. Write a program to blink an external LED at roughly 1 second intervals.
+ * Capture scope output.
+ * Is there any difference between the code size when you implemented this in assembly? What do you think accounts for that?
+ * Is the delay number different then the assembly implementation? Explain.
+ * Change the optimization to -O2, and try again, is there any change? If so, explain what happened.
+ * Is there any difference between the code sizes?
+ *
  */
 
 #include "stm32g0xx.h"
@@ -17,20 +20,19 @@ void delay(volatile uint32_t);
 
 int main(void) {
 
-    /* Enable GPIOC clock */
-    RCC->IOPENR |= (1U << 2);
+    /* Enable GPIOA clock */
+    RCC -> IOPENR |= (1U);
 
-    /* Setup PC6 as output */
-    GPIOC->MODER &= ~(3U << 2*6);
-    GPIOC->MODER |= (1U << 2*6);
+    /* Setup PA_1 as output */
+    GPIOA -> MODER &= ~(1U << 1);
 
     /* Turn on LED */
-    GPIOC->ODR |= (1U << 6);
+    GPIOA -> ODR |= (1U);
 
     while(1) {
         delay(LEDDELAY);
         /* Toggle LED */
-        GPIOC->ODR ^= (1U << 6);
+        GPIOA->ODR ^= (1U);
     }
 
     return 0;
