@@ -3,6 +3,8 @@
  *
  * author: Alican Bayındır
  *
+ * Description: The code blinks the LED that connected to the PA_0 with the given interval.
+ *
  * Problem 1 [20 pts]. Write a program to blink an external LED at roughly 1 second intervals.
  * Capture scope output.
  * Is there any difference between the code size when you implemented this in assembly? What do you think accounts for that?
@@ -23,7 +25,7 @@ int main(void) {
     /* Enable GPIOA clock */
     RCC -> IOPENR |= (1U);
 
-    /* Setup PA_1 as output */
+    /* Setup PA_0 as output */
     GPIOA -> MODER &= ~(1U << 1);
 
     /* Turn on LED */
