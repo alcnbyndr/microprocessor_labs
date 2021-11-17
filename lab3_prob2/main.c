@@ -36,7 +36,6 @@
  * * * * * * * LIBRARIES * * * * * * * * *
 *****************************************/
 #include "stm32g0xx.h"
-#include "stdio.h"
 
 /*****************************************
  * * * * * * * CONSTANTS * * * * * * * * *
@@ -63,12 +62,6 @@ enum states{
 } mode;
 
 /*****************************************
- * * * * * * * VARIABLES * * * * * * * * *
-*****************************************/
-mode = mode_0;
-int mode_counter = 0;
-
-/*****************************************
  * * * * * * * MAIN FUNC * * * * * * * * *
 *****************************************/
 int main(void) {
@@ -80,6 +73,12 @@ int main(void) {
 
     /* Setup PB_1 as input */
     GPIOB -> MODER &= ~(12U);
+
+/*****************************************
+ * * * * * * * VARIABLES * * * * * * * * *
+*****************************************/
+    mode = mode_0;
+    int mode_counter = 0;
 
     while(1){
     	/* Checks if button pressed or not if pressed make button_pressed = 1*/
