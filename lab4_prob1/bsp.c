@@ -1,3 +1,23 @@
+/*
+ * bsp.h
+ *
+ * Created on: 30 Nov 2021
+ *
+ * author: Alican Bayındır
+ *
+ * Problem 1[20 pts]. Create a Board Support Package (BSP) that you will be using for the rest of the semester.
+ * This BSP should only consist of board related functions. Some of these functions include:
+ * Configure / turn on / turn off / toggle on-board LED.
+ * Configure / read on-board button.
+ * Initialize and configure the processor clock.
+ * Initialize and configure the interrupts / exceptions.
+ * Initialize and configure the SysTick timer. (Problem 2)
+ * Initialize and configure the watchdog timer. (Problem 4)
+ * Initialize and configure the timers if any.
+ * Initialize and configure the external interrupts.
+ */
+
+
 #include "bsp.h"
 #include "stm32g0xx.h"
 
